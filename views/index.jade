@@ -1,0 +1,32 @@
+!!! 5
+html
+  head
+    title TodoExpress
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/css/modern.css')
+    link(rel='stylesheet', href='/css/modern-responsive.css')
+    script(type='text/javascript', src='/js/assets/jquery-1.9.0.min.js')
+    script(type='text/javascript', src='/js/assets/jquery.mousewheel.min.js')
+    script(type='text/javascript', src='/js/modern/input-control.js')
+  body(class='metrouicss')
+    .page.secondary
+      .page-header
+        .page-header-content
+          h1 TodoExpress
+            small Todo-list on node
+    .page.secondary
+      .page-region
+        .page-region-content
+          form#form1(action='/item', method='post')
+            .grid
+              .row
+                .input-control.text.span7
+                  input(type='text', name='what')
+                  button.btn-clear()
+                .input-control.text.span3
+                  input(type='submit', value='Add', style='margin-left: 10px;')
+          table.hovered.span7
+            for i in list
+              tr
+                td(style='height:36px;')= i.what
+              

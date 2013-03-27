@@ -9,4 +9,4 @@ var TodoItemSchema = new Schema({
     done: { type: Boolean }
 });
 
-var TodoItem = module.exports.TodoItem = mongoose.model('Item', Schema);
+var TodoItem = module.exports.TodoItem = mongoose.model('Item', TodoItemSchema);
