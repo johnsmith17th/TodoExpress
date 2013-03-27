@@ -5,11 +5,11 @@
 1. Install nodejs.
 2. Download this project and unzip.
 3. To run the application, the follow modules are also required:
->
-* express
-* jade
-* mongodb
-* mongoose
+
+ * express
+ * jade
+ * mongodb
+ * mongoose
 
 ###JUST RUN IT
     node server.js
