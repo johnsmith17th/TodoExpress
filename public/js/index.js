@@ -33,7 +33,10 @@ $(document).ready(function () {
     $('.item-group').bind('click', function () {
         var values = getSelected();
         $('.item-selected').val(values);
-        if (values) $('#options').fadeIn();
+        if (values) {
+            $('#detail').fadeOut();
+            $('#options').fadeIn();            
+        }
         else $('#options').fadeOut();
     });
     $('.item-what').bind('click', function () {
