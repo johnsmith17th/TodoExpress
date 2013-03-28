@@ -26,6 +26,9 @@ app.configure('production', function () {
 
 app.get('/', routes.index);
 app.post('/item', routes.postItem);
+app.post('/item/done', routes.postItemDone);
+app.post('/item/undone', routes.postItemUndone);
+app.post('/item/del', routes.postItemDelete);
 
 app.listen(8080);
 console.log("TodoExpress server listening on port %d in %s mode", 8080, app.settings.env);

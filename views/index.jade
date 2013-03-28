@@ -9,11 +9,18 @@ html
     script(type='text/javascript', src='/js/assets/jquery.mousewheel.min.js')
     script(type='text/javascript', src='/js/modern/input-control.js')
   body(class='metrouicss')
+
     .page.secondary
       .page-header
         .page-header-content
           h1 TodoExpress
             small Todo-list on node
+
+          .offset12
+            button#github.image-button.bg-color-green.fg-color-white
+              |View on Github
+              i.bg-color-greenDark.icon-github-4
+
     .page.secondary
       .page-region
         .page-region-content
@@ -25,8 +32,38 @@ html
                   button.btn-clear()
                 .input-control.text.span3
                   input(type='submit', value='Add', style='margin-left: 10px;')
-          table.hovered.span7
+          .grid
             for i in list
-              tr
-                td(style='height:36px;')= i.what
-              
+              .row(style='height:32px;')
+                  label.input-control.checkbox
+                    input.item-group(type='checkbox', value='#{i.id}')
+                    span.helper(style='padding-left:32px;')= i.what
+                    |&nbsp;&nbsp;
+                    if i.done
+                      small.icon-checkmark(style='font-size:10px; color:green;')
+    
+          #message.app-bar.fg-color-white(style='z-index:100;')
+            .page-region
+              .page-region-content
+                h2.fg-color-white Delete the selected item(s)?
+                button#delete.default Delete
+                button#cancel Cancel
+
+          #options.app-bar.fg-color-white(style='z-index:90;')
+            .page-region
+              .page-region-content
+                h2.fg-color-white Options
+                button#done.default
+                  i.icon-checkmark
+                  | Done
+                button#undone.default 
+                  i.icon-undo
+                  | Undone
+                button#remove.default
+                  i.icon-remove
+                  | Delete
+                form#itemopt(action='/item/done', method='post')
+                  input.item-selected(type='hidden', name='id')          
+
+    script(type='text/javascript', src='/js/index.js')
+      
