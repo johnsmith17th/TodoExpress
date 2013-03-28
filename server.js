@@ -25,6 +25,7 @@ app.configure('production', function () {
 });
 
 app.get('/', routes.index);
+app.get('/item', routes.getItem);
 app.post('/item', routes.postItem);
 app.post('/item/done', routes.postItemDone);
 app.post('/item/undone', routes.postItemUndone);

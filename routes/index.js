@@ -7,6 +7,17 @@ module.exports.index = function index(req, res) {
     });
 };
 
+module.exports.getItem = function getItem(req, res) {
+
+    var id = req.param('id');
+
+    model.TodoItem.findOne({ _id: id }, { _id: 0, __v: 0 }, function (err, doc) {
+        if (err) res.json(500);
+        else if (doc) res.json(doc)
+        else res.json(404);
+    });
+};
+
 module.exports.postItem = function postItem(req, res) {
 
     var m = new model.TodoItem({

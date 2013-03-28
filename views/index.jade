@@ -8,6 +8,7 @@ html
     script(type='text/javascript', src='/js/assets/jquery-1.9.0.min.js')
     script(type='text/javascript', src='/js/assets/jquery.mousewheel.min.js')
     script(type='text/javascript', src='/js/modern/input-control.js')
+    script(type='text/javascript', src='/js/assets/moment.js')
   body(class='metrouicss')
 
     .page.secondary
@@ -37,10 +38,12 @@ html
               .row(style='height:32px;')
                   label.input-control.checkbox
                     input.item-group(type='checkbox', value='#{i.id}')
-                    span.helper(style='padding-left:32px;')= i.what
+                    span.helper() &nbsp;
+                  span.item-what(id='_#{i.id}', style='cursor:pointer;')= i.what
                     |&nbsp;&nbsp;
                     if i.done
                       small.icon-checkmark(style='font-size:10px; color:green;')
+                    
     
           #message.app-bar.fg-color-white(style='z-index:100;')
             .page-region
@@ -63,7 +66,25 @@ html
                   i.icon-remove
                   | Delete
                 form#itemopt(action='/item/done', method='post')
-                  input.item-selected(type='hidden', name='id')          
+                  input.item-selected(type='hidden', name='id')
+
+    #detail.charms.bg-color-blueDark.fg-color-white(style='width:300px; z-index:80;')
+      .page.sencondary
+        .page-header
+          .page-header-content
+            h2.fg-color-white Details
+        .page-region
+          .page-region-content(style='padding:20px;')
+            h3#what.fg-color-white
+            P &nbsp;
+            P
+              span.icon-bookmark-2 &nbsp;
+              span#status
+            p
+              span.icon-clock &nbsp;
+              span#post
+            P &nbsp;
+            button#back Close
 
     script(type='text/javascript', src='/js/index.js')
       
